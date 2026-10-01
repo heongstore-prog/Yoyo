@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Winter Crown Tournament</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top, #173b63 0%, #081321 45%, #03070d 100%);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Snow */
+.snow {
+    position: fixed;
+    top: -10px;
+    color: white;
+    font-size: 14px;
+    opacity: 0.8;
+    pointer-events: none;
+    animation: snowfall linear infinite;
+    z-index: 1;
+}
+
+@keyframes snowfall {
+    from {
+        transform: translateY(-20px) rotate(0deg);
+    }
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding: 25px 16px 40px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Header */
+.hero {
+    text-align: center;
+    padding: 25px 10px 20px;
+}
+
+.crown {
+    font-size: 45px;
+    margin-bottom: 8px;
+}
+
+.hero h1 {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #ffffff, #9ddcff, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #8ed8ff;
+    letter-spacing: 3px;
+}
+
+/* Cards */
+.card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(155,220,255,0.25);
+    border-radius: 22px;
+    padding: 22px;
+    margin-top: 18px;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.35);
+}
+
+.card-title {
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #9edfff;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+/* Prize */
+.prize {
+    text-align: center;
+}
+
+.prize-main {
+    font-size: 27px;
+    font-weight: 900;
+    color: #ffffff;
+}
+
+.plus {
+    font-size: 20px;
+    margin: 8px 0;
+    color: #8ed8ff;
+}
+
+.sponsor {
+    font-size: 19px;
+    font-weight: bold;
+    color: #bdeaff;
+}
+
+.description {
+    margin-top: 12px;
+    color: #cbd8e5;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Code */
+.code-box {
+    text-align: center;
+}
+
+.code-label {
+    font-size: 13px;
+    color: #a9cce2;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.code {
+    display: inline-block;
+    width: 100%;
+    padding: 17px 10px;
+    border-radius: 14px;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(142,216,255,0.4);
+    font-size: 29px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: #ffffff;
+    margin-bottom: 14px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    padding: 15px;
+    border-radius: 13px;
+    font-size: 16px;
+    font-weight: 800;
+    transition: 0.2s;
+}
+
+.copy-btn {
+    background: linear-gradient(135deg, #9ee7ff, #4aa9dc);
+    color: #03101c;
+}
+
+.copy-btn:active {
+    transform: scale(0.97);
+}
+
+/* Instructions */
+.instructions h2 {
+    font-size: 19px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.instructions ol {
+    padding-left: 22px;
+}
+
+.instructions li {
+    color: #d6e4ef;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.highlight {
+    color: #9cddff;
+    font-weight: bold;
+}
+
+/* Main website button */
+.main-btn {
+    margin-top: 18px;
+    background: linear-gradient(135deg, #ffffff, #9bdcff);
+    color: #06101b;
+    box-shadow: 0 5px 25px rgba(91,190,255,0.25);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 25px;
+    color: #71879a;
+    font-size: 12px;
+}
+
+/* Mobile */
+@media (max-width: 420px) {
+    .hero h1 {
+        font-size: 27px;
+    }
+
+    .code {
+        font-size: 24px;
+        letter-spacing: 4px;
+    }
+
+    .prize-main {
+        font-size: 24px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="snow-container"></div>
+
+<div class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="crown">👑</div>
+        <h1>WINTER CROWN TOURNAMENT</h1>
+        <div class="subtitle">FREE ENTRY</div>
+    </section>
+
+
+    <!-- PRIZE -->
+    <section class="card prize">
+        <div class="card-title">🏆 WINNER REWARD</div>
+
+        <div class="prize-main">
+            ₹500 CASH PRIZE
+        </div>
+
+        <div class="plus">+</div>
+
+        <div class="sponsor">
+            ₹5,000 HEONG ARENA<br>
+            FUTURE TOURNAMENT SPONSORSHIP
+        </div>
+
+        <p class="description">
+            The winner will receive ₹500 plus free sponsorship
+            from Heong Arena worth ₹5,000 for a future tournament.
+        </p>
+    </section>
+
+
+    <!-- CODE -->
+    <section class="card code-box">
+
+        <div class="card-title">YOUR REGISTRATION CODE</div>
+
+        <div class="code-label">
+            COPY THIS CODE
+        </div>
+
+        <div id="registrationCode" class="code">
+            LOADING...
+        </div>
+
+        <button class="copy-btn" id="copyButton" onclick="copyCode()">
+            COPY CODE
+        </button>
+
+    </section>
+
+
+    <!-- INSTRUCTIONS -->
+    <section class="card instructions">
+
+        <h2>REGISTRATION INSTRUCTIONS</h2>
+
+        <ol>
+            <li>
+                Copy the registration code shown above.
+            </li>
+
+            <li>
+                Paste this code as your
+                <span class="highlight">UTR</span>
+                during registration/payment.
+            </li>
+
+            <li>
+                You can select
+                <span class="highlight">any mode of payment.</span>
+            </li>
+
+            <li>
+                Complete your registration on the
+                main tournament website.
+            </li>
+
+            <li>
+                The
+                <span class="highlight">match pool</span>
+                will be uploaded in the
+                <span class="highlight">Events page</span>
+                after registration is closed.
+            </li>
+        </ol>
+
+    </section>
+
+
+    <!-- MAIN WEBSITE -->
+    <button class="main-btn" onclick="goToMainWebsite()">
+        GO TO TOURNAMENT WEBSITE
+    </button>
+
+
+    <div class="footer">
+        WINTER CROWN TOURNAMENT
+    </div>
+
+</div>
+
+
+<script>
+
+/* ==========================================
+   REGISTRATION CODES
+   ========================================== */
+
+const codes = [
+    "HE72X91I",
+    "KA45M28P",
+    "TR83Q61L",
+    "ZN29C74R",
+    "BX56N83K",
+    "PL91V42D",
+    "QW37H65M",
+    "FC84T29A",
+    "RY62K18Z",
+    "JM48P73X",
+    "DG25L91C",
+    "VX71R36N",
+    "HU39B82Q",
+    "CT64Y17W",
+    "NK58D43F",
+    "SA27G96L",
+    "WP83M51H",
+    "EZ46Q28T",
+    "KR75X34B",
+    "LM92C67V",
+    "AD38N54Y",
+    "GF61P29R",
+    "YT47H83K",
+    "QC95V26M",
+    "BN34X78D",
+    "RX82L41P",
+    "FH57Q93Z",
+    "MK29T65C",
+    "JV73D48N",
+    "PS86K21W"
+];
+
+
+/* ==========================================
+   SELECT RANDOM CODE
+   ========================================== */
+
+const randomIndex =
+    Math.floor(Math.random() * codes.length);
+
+const selectedCode = codes[randomIndex];
+
+document.getElementById("registrationCode").textContent =
+    selectedCode;
+
+
+/* ==========================================
+   COPY CODE
+   ========================================== */
+
+function copyCode() {
+
+    navigator.clipboard.writeText(selectedCode)
+    .then(function() {
+
+        const button =
+            document.getElementById("copyButton");
+
+        button.textContent = "COPIED ✓";
+
+        setTimeout(function() {
+            button.textContent = "COPY CODE";
+        }, 1800);
+
+    })
+    .catch(function() {
+
+        alert("Please copy the code manually: " + selectedCode);
+
+    });
+}
+
+
+/* ==========================================
+   MAIN TOURNAMENT WEBSITE
+   ========================================== */
+
+function goToMainWebsite() {
+
+    window.location.href =
+        "YOUR_MAIN_TOURNAMENT_WEBSITE_URL";
+
+}
+
+
+/* ==========================================
+   SNOW EFFECT
+   ========================================== */
+
+function createSnow() {
+
+    const snow = document.createElement("div");
+
+    snow.className = "snow";
+    snow.innerHTML = "❄";
+
+    snow.style.left =
+        Math.random() * 100 + "vw";
+
+    snow.style.fontSize =
+        (8 + Math.random() * 12) + "px";
+
+    snow.style.animationDuration =
+        (5 + Math.random() * 8) + "s";
+
+    snow.style.opacity =
+        (0.3 + Math.random() * 0.7);
+
+    document
+        .getElementById("snow-container")
+        .appendChild(snow);
+
+    setTimeout(function() {
+        snow.remove();
+    }, 14000);
+}
+
+setInterval(createSnow, 250);
+
+</script>
+
+</body>
+</html>
